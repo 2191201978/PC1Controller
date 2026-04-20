@@ -28,6 +28,35 @@ MainWindow::MainWindow(QWidget *parent)
     connect(timer, &QTimer::timeout, this, &MainWindow::autoReadPressure);
 
     refreshPorts();
+
+    videoWidget = qobject_cast<QVideoWidget*>(ui->videoPlaceholder); // 假设你命名为 videoPlaceholder
+
+    // ====== 摄像头初始化（Qt 5 兼容版）======
+//    videoWidget = new QVideoWidget(this);
+//    ui->gridLayout->addWidget(videoWidget, 0, 1); // 根据你的布局调整
+
+    // 使用 QCameraInfo 枚举设备（Qt 5 方式）
+    QList<QCameraInfo> cameras = QCameraInfo::availableCameras();
+
+    if (cameras.isEmpty()) {
+//        videoWidget->setText("❌ 未检测到摄像头");
+        logMessage("摄像头初始化失败：无可用设备");
+        return;
+    }
+
+    // 尝试选择第二个摄像头（ID=1），否则用第一个
+    QCameraInfo targetInfo;
+    if (cameras.size() > 1) {
+        targetInfo = cameras[1]; // 对应 OpenCV 的 CAMERA_ID = 1
+    } else {
+        targetInfo = cameras[0];
+    }
+
+    camera = new QCamera(targetInfo, this);
+    camera->setViewfinder(videoWidget);
+    camera->start();
+
+    logMessage(QString("✅ 摄像头已启动: %1").arg(targetInfo.description()));
 }
 
 MainWindow::~MainWindow()
@@ -51,17 +80,6 @@ void MainWindow::refreshPorts()
         ui->portCombo->addItem("无可用串口");
     }
 }
-
-//void MainWindow::on_refreshBtn_clicked()
-//{
-//    ui->portCombo->clear();
-//    for (const QSerialPortInfo &info : QSerialPortInfo::availablePorts()) {
-//        ui->portCombo->addItem(info.portName());
-//    }
-//    if (ui->portCombo->count() == 0) {
-//        ui->portCombo->addItem("无可用串口");
-//    }
-//}
 
 void MainWindow::connectSerial()
 {

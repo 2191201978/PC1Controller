@@ -31,3 +31,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 QT += serialport
+
+QT += multimedia multimediawidgets
+QT += core gui widgets serialport multimedia multimediawidgets

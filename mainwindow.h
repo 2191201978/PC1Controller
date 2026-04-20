@@ -6,6 +6,12 @@
 #include <QTimer>
 #include <QDateTime>
 
+#include <QCamera>
+#include <QCameraInfo>
+#include <QVideoWidget>
+
+class QVideoWidget; // 前向声明
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -39,5 +45,9 @@ private:
     QTimer *timer;
 
     QString sendCommand(const QString &cmd);  // <-- 声明 sendCommand
+
+    // 新增：摄像头相关
+    QCamera *camera = nullptr;
+    QVideoWidget *videoWidget = nullptr;
 };
 #endif // MAINWINDOW_H
