@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>1001</width>
     <height>607</height>
    </rect>
   </property>
@@ -22,227 +22,304 @@
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QGroupBox" name="leftup">
+        <widget class="QGroupBox" name="groupBox_3">
          <property name="title">
           <string/>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_2">
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
           <item>
-           <widget class="QGroupBox" name="serialGroup">
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>70</height>
-             </size>
-            </property>
-            <property name="title">
-             <string>串口设置</string>
-            </property>
-            <layout class="QHBoxLayout" name="horizontalLayout_5">
-             <item>
-              <widget class="QLabel" name="label">
-               <property name="text">
-                <string>端口：</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QComboBox" name="portCombo"/>
-             </item>
-             <item>
-              <widget class="QPushButton" name="refreshBtn">
-               <property name="text">
-                <string>刷新端口</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="connectBtn">
-               <property name="text">
-                <string>连接</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="disconnectBtn">
-               <property name="enabled">
-                <bool>false</bool>
-               </property>
-               <property name="text">
-                <string>断开</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item>
-           <widget class="QGroupBox" name="infoGroup">
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>50</height>
-             </size>
-            </property>
-            <property name="title">
-             <string>设备信息</string>
-            </property>
-            <widget class="QLabel" name="snLabel">
-             <property name="geometry">
-              <rect>
-               <x>10</x>
-               <y>22</y>
-               <width>201</width>
-               <height>16</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>序列号：未读取</string>
-             </property>
-            </widget>
-            <widget class="QPushButton" name="readSnBtn">
-             <property name="geometry">
-              <rect>
-               <x>240</x>
-               <y>22</y>
-               <width>101</width>
-               <height>20</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>读取序列号</string>
-             </property>
-            </widget>
-           </widget>
-          </item>
-          <item>
-           <widget class="QGroupBox" name="pressureGroup">
-            <property name="title">
-             <string>压力设定（单位：与设备一致）</string>
-            </property>
-            <layout class="QVBoxLayout" name="verticalLayout_5">
-             <item>
-              <layout class="QVBoxLayout" name="verticalLayout_4">
-               <item>
-                <layout class="QFormLayout" name="formLayout">
-                 <item row="0" column="0">
-                  <widget class="QLabel" name="label_2">
-                   <property name="text">
-                    <string>通道1</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="0" column="1">
-                  <widget class="QDoubleSpinBox" name="ch1Spin"/>
-                 </item>
-                 <item row="1" column="0">
-                  <widget class="QLabel" name="label_3">
-                   <property name="text">
-                    <string>通道2</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="1" column="1">
-                  <widget class="QDoubleSpinBox" name="ch2Spin"/>
-                 </item>
-                 <item row="2" column="0">
-                  <widget class="QLabel" name="label_4">
-                   <property name="text">
-                    <string>通道3</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="2" column="1">
-                  <widget class="QDoubleSpinBox" name="ch3Spin"/>
-                 </item>
-                 <item row="3" column="0">
-                  <widget class="QLabel" name="label_5">
-                   <property name="text">
-                    <string>通道4</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="3" column="1">
-                  <widget class="QDoubleSpinBox" name="ch4Spin">
-                   <property name="decimals">
-                    <number>2</number>
-                   </property>
-                   <property name="minimum">
-                    <double>-10000.000000000000000</double>
-                   </property>
-                   <property name="maximum">
-                    <double>10000.000000000000000</double>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item>
-                <widget class="QPushButton" name="applyPressureBtn">
-                 <property name="text">
-                  <string>应用压力设定</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item>
-           <widget class="QGroupBox" name="groupBox">
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>50</height>
-             </size>
-            </property>
+           <widget class="QGroupBox" name="leftup">
             <property name="title">
              <string/>
             </property>
-            <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <layout class="QVBoxLayout" name="verticalLayout_2">
              <item>
-              <widget class="QPushButton" name="resetBtn">
-               <property name="enabled">
-                <bool>true</bool>
+              <widget class="QGroupBox" name="serialGroup">
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>70</height>
+                </size>
                </property>
-               <property name="text">
-                <string>复位ADC</string>
+               <property name="title">
+                <string>串口设置</string>
                </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_5">
+                <item>
+                 <widget class="QLabel" name="label">
+                  <property name="text">
+                   <string>端口：</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="portCombo"/>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="refreshBtn">
+                  <property name="text">
+                   <string>刷新端口</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="connectBtn">
+                  <property name="text">
+                   <string>连接</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="disconnectBtn">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="text">
+                   <string>断开</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="startReadBtn">
-               <property name="enabled">
-                <bool>true</bool>
+              <widget class="QGroupBox" name="groupBox_5">
+               <property name="title">
+                <string>蠕动泵控制</string>
                </property>
-               <property name="text">
-                <string>开始实时读取</string>
-               </property>
+               <widget class="QLabel" name="label_6">
+                <property name="geometry">
+                 <rect>
+                  <x>10</x>
+                  <y>30</y>
+                  <width>54</width>
+                  <height>12</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>目标速度：</string>
+                </property>
+               </widget>
+               <widget class="QLineEdit" name="motorSpeedEdit">
+                <property name="geometry">
+                 <rect>
+                  <x>70</x>
+                  <y>30</y>
+                  <width>113</width>
+                  <height>20</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>用于输入数字</string>
+                </property>
+               </widget>
+               <widget class="QLabel" name="label_7">
+                <property name="geometry">
+                 <rect>
+                  <x>190</x>
+                  <y>30</y>
+                  <width>81</width>
+                  <height>16</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>(0-3000 RPM)</string>
+                </property>
+               </widget>
+               <widget class="QRadioButton" name="radioCW">
+                <property name="geometry">
+                 <rect>
+                  <x>270</x>
+                  <y>10</y>
+                  <width>89</width>
+                  <height>16</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>正转 (CW)</string>
+                </property>
+               </widget>
+               <widget class="QRadioButton" name="radioCCW">
+                <property name="geometry">
+                 <rect>
+                  <x>270</x>
+                  <y>40</y>
+                  <width>89</width>
+                  <height>16</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>反转 (CCW)</string>
+                </property>
+               </widget>
+               <widget class="QPushButton" name="startMotorBtn">
+                <property name="geometry">
+                 <rect>
+                  <x>370</x>
+                  <y>10</y>
+                  <width>75</width>
+                  <height>23</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>启动电机</string>
+                </property>
+               </widget>
+               <widget class="QPushButton" name="stopMotorBtn">
+                <property name="geometry">
+                 <rect>
+                  <x>370</x>
+                  <y>40</y>
+                  <width>75</width>
+                  <height>23</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>停止电机</string>
+                </property>
+               </widget>
+               <widget class="QLabel" name="motorStatus">
+                <property name="geometry">
+                 <rect>
+                  <x>200</x>
+                  <y>10</y>
+                  <width>54</width>
+                  <height>20</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>就绪</string>
+                </property>
+               </widget>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="stopReadBtn">
-               <property name="enabled">
-                <bool>false</bool>
+              <widget class="QGroupBox" name="infoGroup">
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>50</height>
+                </size>
                </property>
-               <property name="text">
-                <string>停止读取</string>
+               <property name="title">
+                <string>设备信息</string>
                </property>
+               <widget class="QLabel" name="snLabel">
+                <property name="geometry">
+                 <rect>
+                  <x>10</x>
+                  <y>22</y>
+                  <width>201</width>
+                  <height>16</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>序列号：未读取</string>
+                </property>
+               </widget>
+               <widget class="QPushButton" name="readSnBtn">
+                <property name="geometry">
+                 <rect>
+                  <x>240</x>
+                  <y>22</y>
+                  <width>101</width>
+                  <height>20</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>读取序列号</string>
+                </property>
+               </widget>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="pressureGroup">
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>100</height>
+                </size>
+               </property>
+               <property name="title">
+                <string>压力设定（单位：与设备一致）</string>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_5">
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_4">
+                  <item>
+                   <layout class="QFormLayout" name="formLayout">
+                    <item row="0" column="0">
+                     <widget class="QLabel" name="label_2">
+                      <property name="text">
+                       <string>通道1</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="1">
+                     <widget class="QDoubleSpinBox" name="ch1Spin"/>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="applyPressureBtn">
+                    <property name="text">
+                     <string>应用压力设定</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="groupBox">
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="title">
+                <string/>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_3">
+                <item>
+                 <widget class="QPushButton" name="resetBtn">
+                  <property name="enabled">
+                   <bool>true</bool>
+                  </property>
+                  <property name="text">
+                   <string>复位ADC</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="startReadBtn">
+                  <property name="enabled">
+                   <bool>true</bool>
+                  </property>
+                  <property name="text">
+                   <string>开始实时读取</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="stopReadBtn">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="text">
+                   <string>停止读取</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </widget>
              </item>
             </layout>
            </widget>
           </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QGroupBox" name="groupBox_3">
-         <property name="title">
-          <string>视频显示</string>
-         </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_2">
           <item>
            <widget class="QVideoWidget" name="videoPlaceholder">
             <property name="maximumSize">
@@ -298,12 +375,17 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>1001</width>
      <height>23</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionasdf">
+   <property name="text">
+    <string>asdf</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>
