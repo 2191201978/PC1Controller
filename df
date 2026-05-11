@@ -1,0 +1,23 @@
+[33mcommit a802655364d95278c48e1cf35690d8e2d39be946[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m
+Author: chaicha <2191201978@qq.com>
+Date:   Mon Apr 20 16:49:04 2026 +0800
+
+    在原有气压控制软件的基础上，增加了内窥镜显示控件
+
+[33mcommit fb5a097bccecbe14aad8ef6523007536f2c3f9fc[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: chaicha <2191201978@qq.com>
+Date:   Fri Apr 17 16:01:42 2026 +0800
+
+    修改了ui界面中的一些标签和显示窗口的大小
+
+[33mcommit d5431c82f50a382b0acc40b42569fc0ae610f1a9[m
+Author: chaicha <2191201978@qq.com>
+Date:   Wed Apr 15 16:35:08 2026 +0800
+
+    添加.gitignore,忽略构建文件和用户配置
+
+[33mcommit c1fae559c36aa4e9cb69b87a80a0f943bf455aa4[m
+Author: chaicha <2191201978@qq.com>
+Date:   Wed Apr 15 16:30:59 2026 +0800
+
+    厨师提交：完成串口连接功能
