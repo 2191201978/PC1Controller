@@ -245,21 +245,28 @@
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_5">
                 <item>
-                 <layout class="QVBoxLayout" name="verticalLayout_4">
-                  <item>
-                   <layout class="QFormLayout" name="formLayout">
-                    <item row="0" column="0">
-                     <widget class="QLabel" name="label_2">
-                      <property name="text">
-                       <string>通道1</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="0" column="1">
-                     <widget class="QDoubleSpinBox" name="ch1Spin"/>
-                    </item>
-                   </layout>
+                 <layout class="QFormLayout" name="formLayout">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_2">
+                    <property name="text">
+                     <string>压力值：</string>
+                    </property>
+                   </widget>
                   </item>
+                  <item row="0" column="1">
+                   <widget class="QDoubleSpinBox" name="ch1Spin">
+                    <property name="maximumSize">
+                     <size>
+                      <width>400</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_4">
                   <item>
                    <widget class="QPushButton" name="applyPressureBtn">
                     <property name="text">
@@ -376,7 +383,7 @@
      <x>0</x>
      <y>0</y>
      <width>1001</width>
-     <height>23</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

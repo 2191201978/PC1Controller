@@ -17,11 +17,12 @@ MainWindow::MainWindow(QWidget *parent)
     // --- 初始化 UI 状态 ---
     ui->disconnectBtn->setEnabled(false);
     ui->stopReadBtn->setEnabled(false);
-    // ui->motorSpeedEdit->setText("500"); // 如果你保留了电机控制，可以在这里初始化，但连接逻辑交给 autoConnect
+     ui->motorSpeedEdit->setText("500"); // 如果你保留了电机控制，可以在这里初始化，但连接逻辑交给 autoConnect
     ui->motorStatus->setText("状态: 等待连接...");
 
     // --- 信号连接 (保持不变) ---
-    connect(ui->refreshBtn, &QPushButton::clicked, this, &MainWindow::refreshPorts);/*
+    connect(ui->refreshBtn, &QPushButton::clicked, this, &MainWindow::refreshPorts);
+    /*
     connect(ui->connectBtn, &QPushButton::clicked, this, &MainWindow::connectSerial);
     connect(ui->disconnectBtn, &QPushButton::clicked, this, &MainWindow::disconnectSerial);*/
 
