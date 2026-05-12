@@ -34,66 +34,23 @@
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_2">
              <item>
-              <widget class="QGroupBox" name="serialGroup">
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>70</height>
-                </size>
-               </property>
-               <property name="title">
-                <string>串口设置</string>
-               </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_5">
-                <item>
-                 <widget class="QLabel" name="label">
-                  <property name="text">
-                   <string>端口：</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QComboBox" name="portCombo"/>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="refreshBtn">
-                  <property name="text">
-                   <string>刷新端口</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="connectBtn">
-                  <property name="text">
-                   <string>连接</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="disconnectBtn">
-                  <property name="enabled">
-                   <bool>false</bool>
-                  </property>
-                  <property name="text">
-                   <string>断开</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </item>
-             <item>
               <widget class="QGroupBox" name="groupBox_5">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
                <property name="title">
                 <string>蠕动泵控制</string>
                </property>
                <widget class="QLabel" name="label_6">
                 <property name="geometry">
                  <rect>
-                  <x>10</x>
+                  <x>3</x>
                   <y>30</y>
-                  <width>54</width>
-                  <height>12</height>
+                  <width>61</width>
+                  <height>20</height>
                  </rect>
                 </property>
                 <property name="text">
@@ -116,10 +73,10 @@
                <widget class="QLabel" name="label_7">
                 <property name="geometry">
                  <rect>
-                  <x>190</x>
+                  <x>200</x>
                   <y>30</y>
-                  <width>81</width>
-                  <height>16</height>
+                  <width>101</width>
+                  <height>20</height>
                  </rect>
                 </property>
                 <property name="text">
@@ -129,8 +86,8 @@
                <widget class="QRadioButton" name="radioCW">
                 <property name="geometry">
                  <rect>
-                  <x>270</x>
-                  <y>10</y>
+                  <x>320</x>
+                  <y>30</y>
                   <width>89</width>
                   <height>16</height>
                  </rect>
@@ -142,9 +99,9 @@
                <widget class="QRadioButton" name="radioCCW">
                 <property name="geometry">
                  <rect>
-                  <x>270</x>
-                  <y>40</y>
-                  <width>89</width>
+                  <x>320</x>
+                  <y>70</y>
+                  <width>101</width>
                   <height>16</height>
                  </rect>
                 </property>
@@ -155,8 +112,8 @@
                <widget class="QPushButton" name="startMotorBtn">
                 <property name="geometry">
                  <rect>
-                  <x>370</x>
-                  <y>10</y>
+                  <x>20</x>
+                  <y>70</y>
                   <width>75</width>
                   <height>23</height>
                  </rect>
@@ -168,8 +125,8 @@
                <widget class="QPushButton" name="stopMotorBtn">
                 <property name="geometry">
                  <rect>
-                  <x>370</x>
-                  <y>40</y>
+                  <x>120</x>
+                  <y>70</y>
                   <width>75</width>
                   <height>23</height>
                  </rect>
@@ -181,9 +138,9 @@
                <widget class="QLabel" name="motorStatus">
                 <property name="geometry">
                  <rect>
-                  <x>200</x>
-                  <y>10</y>
-                  <width>54</width>
+                  <x>220</x>
+                  <y>70</y>
+                  <width>91</width>
                   <height>20</height>
                  </rect>
                 </property>
@@ -195,6 +152,12 @@
              </item>
              <item>
               <widget class="QGroupBox" name="infoGroup">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
                <property name="maximumSize">
                 <size>
                  <width>16777215</width>
@@ -209,7 +172,7 @@
                  <rect>
                   <x>10</x>
                   <y>22</y>
-                  <width>201</width>
+                  <width>211</width>
                   <height>16</height>
                  </rect>
                 </property>
@@ -220,8 +183,8 @@
                <widget class="QPushButton" name="readSnBtn">
                 <property name="geometry">
                  <rect>
-                  <x>240</x>
-                  <y>22</y>
+                  <x>270</x>
+                  <y>20</y>
                   <width>101</width>
                   <height>20</height>
                  </rect>

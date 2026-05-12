@@ -41,9 +41,9 @@ private:
 
 
 private slots:
-    void refreshPorts();
+//    void refreshPorts();
     void connectSerial(QString portName);
-    void disconnectSerial();
+//    void disconnectSerial();
     void readSN();
     void setPressures();
     void sendReset();
@@ -53,7 +53,7 @@ private slots:
 
     void logMessage(const QString &msg);
 
-    void on_connectMotorBtn_clicked(); // 连接电机串口
+//    void on_connectMotorBtn_clicked(); // 连接电机串口
     void on_startMotorBtn_clicked();   // 启动电机
     void on_stopMotorBtn_clicked();    // 停止电机
     void connectmotorSerial(QString portName);

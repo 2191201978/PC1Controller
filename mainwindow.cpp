@@ -12,18 +12,21 @@ MainWindow::MainWindow(QWidget *parent)
     , timer(new QTimer(this))
 {
     ui->setupUi(this);
-    autoConnectDevices();
+
 
     // --- 初始化 UI 状态 ---
-    ui->disconnectBtn->setEnabled(false);
+//    ui->disconnectBtn->setEnabled(false);
     ui->stopReadBtn->setEnabled(false);
-    // ui->motorSpeedEdit->setText("500"); // 如果你保留了电机控制，可以在这里初始化，但连接逻辑交给 autoConnect
+    ui->motorSpeedEdit->setText("500"); // 如果你保留了电机控制，可以在这里初始化，但连接逻辑交给 autoConnect
     ui->motorStatus->setText("状态: 等待连接...");
 
     // --- 信号连接 (保持不变) ---
-    connect(ui->refreshBtn, &QPushButton::clicked, this, &MainWindow::refreshPorts);/*
+//    connect(ui->refreshBtn, &QPushButton::clicked, this, &MainWindow::refreshPorts);
+    /*
     connect(ui->connectBtn, &QPushButton::clicked, this, &MainWindow::connectSerial);
     connect(ui->disconnectBtn, &QPushButton::clicked, this, &MainWindow::disconnectSerial);*/
+
+//    autoConnectDevices();
 
     connect(ui->readSnBtn, &QPushButton::clicked, this, &MainWindow::readSN);
     connect(ui->applyPressureBtn, &QPushButton::clicked, this, &MainWindow::setPressures);
@@ -32,21 +35,13 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->stopReadBtn, &QPushButton::clicked, this, &MainWindow::stopReading);
     connect(timer, &QTimer::timeout, this, &MainWindow::autoReadPressure);
 
-//    connect(ui->startMotorBtn, &QPushButton::clicked, this, &MainWindow::on_startMotorBtn_clicked);
-
-    refreshPorts();
+//    refreshPorts();
 
     videoWidget = qobject_cast<QVideoWidget*>(ui->videoPlaceholder); // 假设你命名为 videoPlaceholder
-
-    // ====== 摄像头初始化（Qt 5 兼容版）======
-//    videoWidget = new QVideoWidget(this);
-//    ui->gridLayout->addWidget(videoWidget, 0, 1); // 根据你的布局调整
-
     // 使用 QCameraInfo 枚举设备（Qt 5 方式）
     QList<QCameraInfo> cameras = QCameraInfo::availableCameras();
 
     if (cameras.isEmpty()) {
-//        videoWidget->setText("❌ 未检测到摄像头");
         logMessage("摄像头初始化失败：无可用设备");
         return;
     }
@@ -66,10 +61,9 @@ MainWindow::MainWindow(QWidget *parent)
     logMessage(QString("✅ 摄像头已启动: %1").arg(targetInfo.description()));
 
 
-    // 在 MainWindow 构造函数的 ui->setupUi(this); 之后添加
     // 设置速度输入框的默认值
-    ui->motorSpeedEdit->setText("500"); // 假设你的输入框 objectName 是 motorSpeedEdit
-    ui->motorStatus->setText("电机状态: 未连接"); // 假设有一个状态 Label
+//    ui->motorSpeedEdit->setText("500"); // 假设你的输入框 objectName 是 motorSpeedEdit
+//    ui->motorStatus->setText("电机状态: 未连接"); // 假设有一个状态 Label
 
     QTimer::singleShot(100, this, &MainWindow::autoConnectDevices);
 
@@ -86,16 +80,16 @@ void MainWindow::logMessage(const QString &msg)
     ui->logText->append(QString("[%1] %2").arg(timeStr).arg(msg));
 }
 
-void MainWindow::refreshPorts()
-{
-    ui->portCombo->clear();
-    for (const QSerialPortInfo &info : QSerialPortInfo::availablePorts()) {
-        ui->portCombo->addItem(info.portName());
-    }
-    if (ui->portCombo->count() == 0) {
-        ui->portCombo->addItem("无可用串口");
-    }
-}
+//void MainWindow::refreshPorts()
+//{
+//    ui->portCombo->clear();
+//    for (const QSerialPortInfo &info : QSerialPortInfo::availablePorts()) {
+//        ui->portCombo->addItem(info.portName());
+//    }
+//    if (ui->portCombo->count() == 0) {
+//        ui->portCombo->addItem("无可用串口");
+//    }
+//}
 
 void MainWindow::connectSerial(QString portName)
 {
@@ -113,8 +107,8 @@ void MainWindow::connectSerial(QString portName)
     serial->setFlowControl(QSerialPort::NoFlowControl);
 
     if (serial->open(QIODevice::ReadWrite)) {
-        ui->connectBtn->setEnabled(false);
-        ui->disconnectBtn->setEnabled(true);
+//        ui->connectBtn->setEnabled(false);
+//        ui->disconnectBtn->setEnabled(true);
         logMessage("已连接到 气压控制模块");
     } else {
         QMessageBox::critical(this, "连接失败", "无法打开串口:\n" + serial->errorString());
@@ -138,8 +132,8 @@ void MainWindow::connectmotorSerial(QString portName)
     motorSerial->setFlowControl(QSerialPort::NoFlowControl);
 
     if (motorSerial->open(QIODevice::ReadWrite)) {
-        ui->connectBtn->setEnabled(false);
-        ui->disconnectBtn->setEnabled(true);
+//        ui->connectBtn->setEnabled(false);
+//        ui->disconnectBtn->setEnabled(true);
         logMessage("已连接到 蠕动泵控制模块");
     } else {
         QMessageBox::critical(this, "连接失败", "无法打开串口:\n" + serial->errorString());
@@ -147,15 +141,15 @@ void MainWindow::connectmotorSerial(QString portName)
     }
 }
 
-void MainWindow::disconnectSerial()
-{
-    if (serial->isOpen()) {
-        serial->close();
-    }
-    ui->connectBtn->setEnabled(true);
-    ui->disconnectBtn->setEnabled(false);
-    logMessage("串口已断开");
-}
+//void MainWindow::disconnectSerial()
+//{
+//    if (serial->isOpen()) {
+//        serial->close();
+//    }
+//    ui->connectBtn->setEnabled(true);
+//    ui->disconnectBtn->setEnabled(false);
+//    logMessage("串口已断开");
+//}
 
 QString MainWindow::sendCommand(const QString &cmd)
 {
@@ -269,27 +263,6 @@ void MainWindow::stopReading()
 
 
 // --- 电机控制功能实现 ---
-
-// 连接电机串口
-// 注意：这里假设你复用原有的 serial 对象，或者你有一个专门的 motorSerial。
-// 如果复用原有的，且压力计和电机是同一个设备，则不需要重新 open，直接用即可。
-void MainWindow::on_connectMotorBtn_clicked()
-{
-    // 如果你使用独立的串口对象
-    // if (!motorSerial->isOpen()) {
-    //     motorSerial->setPortName(ui->motorPortCombo->currentText()); // 假设有独立的下拉框
-    //     ...
-    // }
-
-    // 如果复用主串口（serial），检查是否已打开
-    if (serial->isOpen()) {
-        ui->motorStatus->setText("电机串口: 已就绪 (复用主串口)");
-    } else {
-        ui->motorStatus->setText("电机串口: 请先连接主串口");
-        // 这里可以弹窗提示，或者调用 connectSerial()
-    }
-}
-
 // 启动电机
 void MainWindow::on_startMotorBtn_clicked()
 {
@@ -405,8 +378,6 @@ void MainWindow::autoConnectDevices()
         // 注意：如果你的蠕动泵是独立串口对象(motorSerial)，请参考下方的 connectByVidPid 实现
         if (vid == 0x1A86 && pid == 0x7523) {
             logMessage(QString("✅ 发现蠕动泵控制模块 (VID:1A86 PID:7523) -> %1").arg(portName));
-            // 如果蠕动泵和气压模块共用一个串口，则不需要做任何事，或者标记 foundPump = true;
-            // 如果蠕动泵是独立的，你需要在这里设置
 //            motorSerial->setPortName...
 //            ui->portCombo->setCurrentText(portName);
             connectmotorSerial(portName);
@@ -416,27 +387,9 @@ void MainWindow::autoConnectDevices()
 
     // 5. 总结状态
     if (foundPressure) {
-        ui->motorStatus->setText("自动连接: 气压模块就绪");
+        ui->motorStatus->setText("蠕动泵就绪");
     } else {
         logMessage("❌ 警告: 未找到气压控制模块，请检查线缆！");
-        ui->motorStatus->setText("自动连接失败: 缺少气压模块");
+        ui->motorStatus->setText("连接失败: 缺少蠕动泵模块");
     }
 }
-
-//// 如果你需要一个通用的连接函数（例如针对电机独立串口），可以使用这个
-//void MainWindow::connectByVidPid(int targetVid, int targetPid, const QString &deviceName)
-//{
-//    QList<QSerialPortInfo> ports = QSerialPortInfo::availablePorts();
-//    for (const QSerialPortInfo &info : ports) {
-//        if (info.vendorIdentifier() == targetVid && info.productIdentifier() == targetPid) {
-//            // 假设 motorSerial 是你定义的独立串口对象
-//            // motorSerial->setPortName(info.portName());
-//            // motorSerial->setBaudRate(...);
-//            // if (motorSerial->open(...)) { ... }
-
-//            logMessage(QString("✅ 已连接 %1: %2").arg(deviceName).arg(info.portName()));
-//            return;
-//        }
-//    }
-//    logMessage(QString("❌ 无法连接 %1: 未找到设备").arg(deviceName));
-//}
